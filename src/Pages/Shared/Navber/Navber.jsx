@@ -1,16 +1,18 @@
-import React from 'react';
+
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Navber = () => {
+const Navber = ({setSearch}) => {
+  
   const navItems = <>
     <li><Link>Home</Link></li>
     <li><Link>Recommendation</Link></li>
     <li><Link>trending</Link></li>
-    <li><Link>Login</Link></li>
-    <li><Link>Registration</Link></li>
+    <li><Link to="/login">Login</Link></li>
+    <li><Link to='/signup'>Registration</Link></li>
   </>
   return (
-    <div className="navbar bg-stone-200">
+    <div className="navbar bg-stone-200 rounded-lg">
       <div className="">
         <div className="dropdown ">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -20,13 +22,13 @@ const Navber = () => {
             {navItems}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl mr-14">daisyUI</a>
+        <a className="btn btn-ghost text-xl mr-20">Music Tracks</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           {navItems}
           <div className='ml-28'>
-            <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
+            <input type="text" placeholder="Search" onChange={(e) => setSearch(e.target.value)}  className="input input-bordered w-24 md:w-auto" />
           </div>
         </ul>
       </div>
