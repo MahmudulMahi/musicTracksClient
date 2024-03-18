@@ -16,7 +16,7 @@ const Navber = ({ setSearch }) => {
 
   const navItems = <>
     <li><Link>Home</Link></li>
-    <li><Link>Recommendation</Link></li>
+    <li><Link to='/recommendation'>Recommendation</Link></li>
     <li><Link>trending</Link></li>
     {
       user?.email ? ""
