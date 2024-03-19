@@ -1,5 +1,5 @@
 
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Link,  } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 
@@ -8,7 +8,8 @@ import { AuthContext } from '../../Providers/AuthProvider';
 const SignUp = () => {
 
   const {createUser}=useContext(AuthContext)
-
+  const [error, setError] = useState('');
+  const [firebaseerror, setFirebaseError] = useState('');
 
   const handleSignUp=e=>{
     e.preventDefault()
@@ -16,7 +17,13 @@ const SignUp = () => {
     const name=form.name.value;
     const email=form.email.value;
     const password=form.password.value
-
+    setError('')
+    if (password.length < 6) {
+      setError('Password must be at least 6 characters long');
+      return; // Exit the function if password is too short
+    }
+   
+   
     console.log(name,email,password)
 
     createUser(email,password)
@@ -24,9 +31,11 @@ const SignUp = () => {
       const user=result.user
       console.log(user)
       window.location.href = '/';
+      
     })
     .catch((err)=>{
       console.log(err)
+      setFirebaseError(err.message)
     })
 
   }
@@ -57,6 +66,7 @@ const SignUp = () => {
               <span className="label-text">Password</span>
             </label>
             <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+            {error && <div style={{ color: 'red' }}>{error}</div>}
             <label className="label">
               <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
             </label>
@@ -66,6 +76,9 @@ const SignUp = () => {
           </div>
         </form>
         <p className='text-center pb-10'>New to here <Link to="/login">Log In</Link></p>
+        {
+           firebaseerror && <div style={{ color: 'red' }}>{firebaseerror}</div>
+          }
       </div>
     </div>
   );

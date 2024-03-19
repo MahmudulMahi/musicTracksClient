@@ -32,8 +32,10 @@ const Home = () => {
 
   return (
     <div>
- 
-      <Navber setSearch={setSearch}></Navber>
+      <div className='mt-10  ml-5 '>
+        <input  type="text" placeholder="Search" onChange={(e) => setSearch(e.target.value)} className="input input-bordered border-black  w-24 md:w-auto" />
+      </div>
+      {/* <Navber setSearch={setSearch}></Navber> */}
       <h2 className='text-center text-3xl mt-10'>All Songs</h2>
 
       {loading ? (
@@ -43,7 +45,7 @@ const Home = () => {
           {data.filter((asong) => {
             return search.toLowerCase() === '' ? asong : asong.title.toLowerCase().includes(search)
           })
-          .map(asong => <Card key={asong.id} asong={asong}></Card>)}
+            .map(asong => <Card key={asong.id} asong={asong}></Card>)}
         </div>
       )}
     </div>

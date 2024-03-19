@@ -48,7 +48,8 @@ const Card = ({ asong }) => {
           title,
           artist,
           audio_file,
-          image
+          image,
+          email:user.email
         }
 
        const res = await axios.post('http://localhost:5000/recommendation',item );
@@ -64,7 +65,7 @@ const Card = ({ asong }) => {
   };
 
   return (
-    <div className="card w-96 bg-base-100 shadow-xl">
+    <div className="card  bg-base-100 shadow-xl">
       <figure className="px-10 pt-10">
         <img src={image} alt="Shoes" className="rounded-xl" />
       </figure>
@@ -72,10 +73,12 @@ const Card = ({ asong }) => {
         <h2 className="card-title">{title}</h2>
         <p>Artist: {artist}</p>
           {/* when click play button increase count for recommendation song */}
-          <audio controls onPlay={incrementClickCount}>
+      
+      <audio className='w-full' controls onPlay={incrementClickCount}>
           <source src={audio_file} type="audio/mp3" />
           Your browser does not support the audio element.
         </audio>
+    
        
       </div>
     </div>

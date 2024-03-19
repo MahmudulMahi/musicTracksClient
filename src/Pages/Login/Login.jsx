@@ -1,10 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 
 const Login = () => {
 
   const {signIn}=useContext(AuthContext)
+  const [error, setError] = useState('');
+ 
 
   const handleLogin=e=>{
     e.preventDefault()
@@ -12,6 +14,13 @@ const Login = () => {
    
     const email=form.email.value;
     const password=form.password.value
+
+    setError("")
+
+    if (password.length < 6) {
+      setError('Password must be at least 6 characters long');
+      return; // Exit the function if password is too short
+    }
 
     console.log(email,password)
 
@@ -21,7 +30,10 @@ const Login = () => {
       console.log(user)
       window.location.href = '/';
     })
-    .catch(error => console.log(error))
+    .catch(error => {
+      console.log(error)
+    
+    })
   }
   return (
     <div className="hero min-h-screen  bg-base-200">
@@ -41,6 +53,7 @@ const Login = () => {
                 <span className="label-text">Password</span>
               </label>
               <input type="password" name='password' placeholder="password" className="input input-bordered" required />
+              {error && <div style={{ color: 'red' }}>{error}</div>}
               <label className="label">
                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
               </label>
@@ -50,6 +63,8 @@ const Login = () => {
             </div>
           </form>
           <p className='text-center pb-10'>New to here <Link to="/signup">Sign Up</Link></p>
+
+         
         </div>
       </div>
 

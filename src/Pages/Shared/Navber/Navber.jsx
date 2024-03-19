@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProvider';
 
 
-const Navber = ({ setSearch }) => {
+const Navber = () => {
 
   const { user, logOut } = useContext(AuthContext)
 
@@ -17,7 +17,7 @@ const Navber = ({ setSearch }) => {
   const navItems = <>
     <li><Link>Home</Link></li>
     <li><Link to='/recommendation'>Recommendation</Link></li>
-    <li><Link>trending</Link></li>
+    <li><Link to='/trending'>trending</Link></li>
     {
       user?.email ? ""
         : <> <li><Link to="/login">Login</Link></li>
@@ -41,9 +41,9 @@ const Navber = ({ setSearch }) => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           {navItems}
-          <div className='ml-28'>
+          {/* <div className='ml-28'>
             <input type="text" placeholder="Search" onChange={(e) => setSearch(e.target.value)} className="input input-bordered w-24 md:w-auto" />
-          </div>
+          </div> */}
         </ul>
       </div>
       {user?.email ?
@@ -58,7 +58,7 @@ const Navber = ({ setSearch }) => {
             <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content  rounded-box w-52 bg-stone-200">
               <li>
                 <a className="justify-between">
-                  Profile
+                  {user.email}
                   
                 </a>
               </li>
