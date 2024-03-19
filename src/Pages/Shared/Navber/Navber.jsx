@@ -36,7 +36,9 @@ const Navber = () => {
             {navItems}
           </ul>
         </div>
+        <Link to='/'>
         <a className="btn btn-ghost text-xl mr-20">Music Tracks</a>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">

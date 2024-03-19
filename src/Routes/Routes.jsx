@@ -5,6 +5,7 @@ import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import Recommendation from "../Pages/Recommendation/Recommendation";
 import Trending from "../Pages/Trending/Trending";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -17,11 +18,11 @@ const router = createBrowserRouter([
       },
       {
         path:'/recommendation',
-        element:<Recommendation></Recommendation>
+        element:<PrivateRoute><Recommendation></Recommendation></PrivateRoute>
       },
       {
         path:'/trending',
-        element:<Trending></Trending>
+        element:<PrivateRoute><Trending></Trending></PrivateRoute>
 
       }
      
