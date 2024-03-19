@@ -20,24 +20,18 @@ Private Route: user can not access Recommendation Page and Trending Page .becaus
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/your-username/your-repo.git`
+1. Clone the repository: `https://github.com/MahmudulMahi/musicTracksClient`
 2. Navigate to the project directory: `cd your-project-directory`
-3. Install dependencies: `npm install` or `yarn install`
+3. Install dependencies: `npm install` 
 
 ## Configuration
 
-If your application requires any configuration (e.g., setting up environment variables), provide instructions here.
+I am using firebase environment variables directly.when you run this web application please provide your envirement veriable.
 
 ## How to Run
 
-1. Start the development server: `npm start` or `yarn start`
-2. Open your browser and navigate to [http://localhost:3000](http://localhost:3000)
+1. Start the development server: `npm run dev` 
+2. Open your browser and navigate to [http://localhost:5000]
 
-## Additional Information
 
-Add any additional information or troubleshooting tips here.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 
