@@ -31,7 +31,7 @@ I am using firebase environment variables directly.when you run this web applica
 ## How to Run
 
 1. Start the development server: `npm run dev` 
-2. Open your browser and navigate to [http://localhost:5000]
+2. Open your browser and navigate to [http://localhost:5173]
 
 
 
